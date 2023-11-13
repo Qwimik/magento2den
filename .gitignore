@@ -1,0 +1,10 @@
+node_modules/
+.idea/
+/bin/
+/dev/
+/generated/
+/lib/
+/phpserver/
+/pub/
+/setup/
+/vendor/
