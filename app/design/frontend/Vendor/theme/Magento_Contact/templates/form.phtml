@@ -1,0 +1,66 @@
+<?php
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+// phpcs:disable Generic.Files.LineLength.TooLong
+
+/** @var \Magento\Contact\Block\ContactForm $block */
+/** @var \Magento\Contact\ViewModel\UserDataProvider $viewModel */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$viewModel = $block->getViewModel();
+?>
+
+<form class="form contact" action="<?= $escaper->escapeUrl($block->getFormAction()) ?>" id="contact-form" method="post" data-hasrequired="<?= $escaper->escapeHtmlAttr(__('* Required Fields')) ?>" data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend contact-page-title"><span><?= $escaper->escapeHtml(__('Write Us')) ?></span></legend>
+        <div class="field name">
+            <div class="control">
+                <input name="name" id="name" title="<?= $escaper->escapeHtmlAttr(__('Name')) ?>" placeholder="<?= $escaper->escapeHtmlAttr(__('Name')) ?>" value="<?= $escaper->escapeHtmlAttr($viewModel->getUserName()) ?>" class="input-text" type="text" maxlength="15" data-validate='{"required":true}' />
+            </div>
+        </div>
+        <div class="field telephone">
+            <div class="control">
+                <input name="telephone" id="telephone" title="<?= $escaper->escapeHtmlAttr(__('Phone Number')) ?>" placeholder="<?= $escaper->escapeHtmlAttr(__('Phone')) ?>" value="<?= $escaper->escapeHtmlAttr($viewModel->getUserTelephone()) ?>" class="input-text" type="tel" data-validate='{"required":true, "validate-number":true, "validate-phone-custom":true}' />
+            </div>
+        </div>
+        <div class="field email">
+            <div class="control">
+                <input name="email" id="email" title="<?= $escaper->escapeHtmlAttr(__('Email')) ?>" placeholder="<?= $escaper->escapeHtmlAttr(__('Email')) ?>" value="<?= $escaper->escapeHtmlAttr($viewModel->getUserEmail()) ?>" class="input-text" type="email" data-validate='{"required":true, "validate-email":true}' data-mage-init='{"mage/trim-input":{}}' />
+            </div>
+        </div>
+        <div class="field comment">
+            <label class="label" for="comment">
+                <span><?= $escaper->escapeHtml(__('Message')) ?></span>
+            </label>
+            <div class="control">
+                <select name="comment" id="comment" title="<?= $escaper->escapeHtmlAttr(__('What’s on your mind?')) ?>" class="input-text" data-validate="{required:true}"><?= $escaper->escapeHtml($viewModel->getUserComment()) ?>
+                    <option value=""></option>
+                    <option value="1">First option</option>
+                    <option value="2">Second option</option>
+                    <option value="3">Third option</option>
+                </select>
+            </div>
+        </div>
+        <?= $block->getChildHtml('form.additional.info') ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?= $escaper->escapeHtmlAttr(__('SENT')) ?>" class="action submit primary">
+                <span><?= $escaper->escapeHtml(__('SENT')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/block-submit-on-send": {
+                "formId": "contact-form"
+            },
+            "Magento_Contact/js/custom-phone-validation": {
+                "phoneFieldId": "telephone"
+            }
+        }
+    }
+</script>

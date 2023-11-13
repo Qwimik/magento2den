@@ -1,0 +1,31 @@
+& when (@media-common =true) {
+    //STD-465
+    .price-final_price {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        font-weight: bold;
+        color: #BE1522;
+        text-transform: uppercase;
+    }
+
+    .product-info-main .product-info-price {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+// Desktop
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    //STD-465
+    .action.primary.tocart {
+        background: #D30015;
+        transition: background .3s ease-out;
+    }
+
+    .action.primary.tocart:hover {
+        background: #EA0015;
+    }
+}

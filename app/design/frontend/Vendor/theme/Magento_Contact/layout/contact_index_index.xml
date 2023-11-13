@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>CONTACTS</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <container name="contact.page" htmlTag="div" htmlClass="contact-page" before="-">
+                <container name="contact.left.column" htmlTag="div" htmlClass="contact-left-column">
+                    <block name="contactForm1" template="Magento_Contact::phones.phtml" />
+                </container>
+                <container name="contact.main.column" htmlTag="div" htmlClass="contact-main-column">
+                    <block name="contactForm2" template="Magento_Contact::emails.phtml" />
+                </container>
+                <container name="contact.right.column" htmlTag="div" htmlClass="contact-right-column" />
+            </container>
+        </referenceContainer>
+
+        <referenceBlock name="page.main.title" remove="true" />
+        
+        <block name="logo.perspective" template="Magento_Contact::logo.phtml"/>
+
+        <move element="contactForm" destination="contact.right.column" />
+        <move element="logo.perspective" destination="content" before="-"/>
+    </body>
+</page>

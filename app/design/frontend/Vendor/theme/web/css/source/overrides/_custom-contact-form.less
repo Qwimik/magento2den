@@ -1,0 +1,82 @@
+& when (@media-common =true) {
+    .contact-right-column {
+        padding: 60px 0 10px 60px;
+        background: #F0F0F0;
+
+        & input[type="text"],
+        & input[type="password"],
+        & input[type="url"],
+        & input[type="tel"],
+        & input[type="search"],
+        & input[type="number"],
+        & input[type*="date"],
+        & input[type="email"] {
+            background: #F0F0F0;
+            border: none;
+            border-bottom: 1px solid #242424;
+            padding: 0;
+    
+            &::placeholder {
+                text-transform: uppercase;
+            }
+        }
+
+        & select {
+            background: #F0F0F0;
+            border: none;
+            border-bottom: 1px solid #242424;
+        }
+
+        & input.mage-error,
+        & select.mage-error,
+        & textarea.mage-error {
+            border-color: #ed8380;
+        }
+
+        & .legend>span {
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 2.8rem;
+        }
+        
+        & .fieldset>.legend {
+            margin: 0 0 50px;
+        }
+        
+        & .fieldset > .field,
+        & .fieldset > .fields > .field {
+            margin: 0 0 40px;
+        }
+
+        & .field.comment > label {
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        & .action.primary,
+        .action-primary {
+            background: #F26322;
+            border-color: #F26322;
+            font-weight: 500;
+            font-size: 1.6rem;
+            padding: 15px 30px;
+            border-radius: 0;
+        }
+
+        & .actions-toolbar {
+            display: flex;
+            justify-content: flex-end;
+        }
+        & .actions-toolbar .primary .action {
+            margin: 0;
+        }
+    }
+
+    
+}
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    .contact-index-index .fieldset {
+        padding-right: 100px;
+    }
+}

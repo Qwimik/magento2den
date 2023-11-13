@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <font src="fonts/texta/Texta-Black.woff2"/>
+        <font src="fonts/texta/Texta-Bold.woff"/>
+        <font src="fonts/texta/Texta-Heavy.woff2"/>
+        <font src="fonts/texta/Texta-It.woff2"/>
+        <font src="fonts/texta/Texta-Medium.woff"/>
+        <font src="fonts/texta/Texta-Regular.woff2"/>
+    </head>
+</page>
