@@ -1,0 +1,48 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+?>
+
+<div class="header-menu">
+    <div class="header-menu__links">
+        <a class="header-menu__link" href="#"><?= $escaper->escapeHtml(__('Доставка и оплата')) ?></a>
+        <a class="header-menu__link" href="#"><?= $escaper->escapeHtml(__('Оптовым клиентам')) ?></a>
+        <a class="header-menu__link" href="<?= $block->getUrl('contact') ?>"><?= $escaper->escapeHtml(__('Контакты')) ?></a>
+    </div>
+    <div class="header-menu__search">
+        <?= $block->getChildHtml('custom-header-search-from') ?>
+    </div>
+    <div class="header-menu__exchange">
+        <p class="exchange-text"><?= $escaper->escapeHtml(__('Курс')) ?></p>
+        <p class="exchange-text exchange-text--dollar">$ 27.95</p>
+        <p class="exchange-text exchange-text--euro">€ 33.50</p>
+        <p class="exchange-text exchange-text--lang"><span class="exchange-text--accent">RU</span><span class="exchange-text__line"></span><span>UA</span></p>
+    </div>
+    <div class="header-menu__actions">
+        <ul class="action-list">
+            <li class="action-list__item">
+                <a class="action-list__link" href="<?= $block->getUrl('') ?>">
+                    <span class="action-list__icon action-list__icon--compare"></span>
+                    <span><?= $escaper->escapeHtml(__('Сравнить')) ?></span></a>
+            </li>
+            <li class="action-list__item">
+                <a class="action-list__link" href="<?= $block->getUrl('wishlist') ?>">
+                    <span class="action-list__icon action-list__icon--wishlist"></span>
+                    <span><?= $escaper->escapeHtml(__('Избранное')) ?></span></a>
+            </li>
+            <li class="action-list__item">
+                <a class="action-list__link" href="<?= $block->getUrl('') ?>">
+                    <span class="action-list__icon action-list__icon--singin"></span>
+                    <span><?= $escaper->escapeHtml(__('Войти')) ?></span></a>
+            </li>
+            <li class="action-list__item">
+                <a class="action-list__link" href="<?= $block->getUrl('') ?>">
+                    <span class="action-list__icon action-list__icon--cart"></span>
+                    <span><?= $escaper->escapeHtml(__('Корзина')) ?></span></a>
+            </li>
+        </ul>
+    </div>
+</div>

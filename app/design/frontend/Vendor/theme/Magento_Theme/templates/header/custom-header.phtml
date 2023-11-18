@@ -1,0 +1,32 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+?>
+
+<div class="custom-header">
+    <div class="custom-header-wrapper">
+        <div class="custom-header-wrapper__left">
+            <div class="logo-container">
+                <?= $block->getChildHtml('custom-header-logo'); ?>
+                <button type="button" class="custom-catalog-btn custom-catalog-btn--desktop">
+                    <span class="custom-catalog-btn__icon"></span>
+                    <span class="custom-catalog-btn__text"><?=$escaper->escapeHtml(__('Каталог товаров'))?></span>
+                </button>
+            </div>
+            <div class="phone-container">
+                <span data-action="toggle-nav" class="action nav-toggle"><span><?=$escaper->escapeHtml(__('Меню'))?></span></span>
+                <a href="tel:0800300144" class="phone-container__link">
+                    <span class="phone-container__icon"></span>0 800 300 144</a>
+            </div>
+        </div>
+        <div class="custom-header-wrapper__right">
+            <?= $block->getChildHtml('custom-header-menu'); ?>
+        </div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container">
+            <container name="custom-header-container">
+                <block name="custom-header-block" template="Magento_Theme::header/custom-header.phtml">
+                    <block name="custom-header-logo" template="Magento_Theme::header/custom-header-logo.phtml"/>
+                    <block name="custom-header-menu" template="Magento_Theme::header/custom-header-menu.phtml">
+                        <block name="custom-header-search-from" template="Magento_Search::custom.form.mini.phtml" />
+                    </block>
+                </block>
+            </container>
+        </referenceContainer>
+
+        <referenceBlock name="store.menu">
+            <block name="custom-store-menu" template="Magento_Theme::header/custom-store-menu.phtml" before="-"/>
+        </referenceBlock>
+
+        <referenceBlock name="store.links" remove="true"/>
+        <referenceBlock name="store.settings" remove="true"/>
+        <referenceContainer name="header-wrapper" remove="true"/>
+        <referenceContainer name="header.panel.wrapper" remove="true"/>
+    </body>
+</page>
