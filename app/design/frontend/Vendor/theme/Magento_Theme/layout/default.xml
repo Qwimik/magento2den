@@ -12,6 +12,10 @@
             </container>
         </referenceContainer>
 
+        <referenceContainer name="div.sidebar.additional">
+            <block name="custom.sidebar" template="Magento_Wishlist::custom-sidebar.phtml"/>
+        </referenceContainer>
+
         <referenceBlock name="store.menu">
             <block name="custom-store-menu" template="Magento_Theme::header/custom-store-menu.phtml" before="-"/>
         </referenceBlock>
@@ -20,5 +24,7 @@
         <referenceBlock name="store.settings" remove="true"/>
         <referenceContainer name="header-wrapper" remove="true"/>
         <referenceContainer name="header.panel.wrapper" remove="true"/>
+        <referenceContainer name="sidebar.additional" remove="true"/>
+        <referenceContainer name="sidebar.main" remove="true"/>
     </body>
 </page>

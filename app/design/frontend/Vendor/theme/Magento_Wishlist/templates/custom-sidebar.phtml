@@ -1,0 +1,79 @@
+<?php
+// phpcs:disable PHPCompatibility.Miscellaneous.RemovedAlternativePHPTags.MaybeASPOpenTagFound
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customer = $objectManager->create('Magento\Customer\Model\Session');
+$urlInterface = \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Framework\UrlInterface::class);
+$currentUrl = $urlInterface->getCurrentUrl();
+$baseurl = $block->getBaseUrl();
+?>
+<script>
+    console.log('<?= $currentUrl == $baseurl ?>');
+</script>
+<div class="custom-sidebar-container">
+    <div class="sidebar-user">
+        <div class="sidebar-user__photo">
+            <img src="<?= $this->getViewFileUrl('images/user-photo.svg'); ?>" alt="user photo">
+        </div>
+        <div class="sidebar-user__info">
+            <p class="sidebar-text"><?= $escaper->escapeHtml($customer->getCustomer()->getName()) ?></p>
+            <p class="sidebar-text sidebar-email"><?= $escaper->escapeHtml($customer->getCustomer()->getEmail()) ?></p>
+        </div>
+    </div>
+    <ul class="custom-sidebar-list">
+        <li class="custom-sidebar-item">
+            <a href="<?= $block->getUrl('customer/account') ?>" class="custom-sidebar-link">
+                <?= $escaper->escapeHtml(__('Личные данные')) ?>
+            </a>
+        </li>
+        <li class="custom-sidebar-item">
+            <a href="<?= $block->getUrl('sales/order/history') ?>" class="custom-sidebar-link">
+                <?= $escaper->escapeHtml(__('Мои заказы')) ?>
+            </a>
+        </li>
+        <li class="custom-sidebar-item">
+            <a href="<?= $block->getUrl('vault/cards/listaction') ?>" class="custom-sidebar-link">
+                <?= $escaper->escapeHtml(__('Платёжные соглашения')) ?>
+            </a>
+        </li>
+        <li class="custom-sidebar-item">
+            <a href="<?= $block->getUrl('customer/account') ?>" class="custom-sidebar-link">
+                <?= $escaper->escapeHtml(__('Периодические услуги')) ?>
+            </a>
+        </li>
+        <li class="custom-sidebar-item">
+            <a href="<?= $block->getUrl('review/customer') ?>" class="custom-sidebar-link">
+                <?= $escaper->escapeHtml(__('Мои отзывы о товарах')) ?>
+            </a>
+        </li>
+        <li class="custom-sidebar-item">
+            <a href="<?= $block->getUrl('wishlist') ?>" class="custom-sidebar-link">
+                <?= $escaper->escapeHtml(__('Мой лист пожеланий')) ?>
+            </a>
+        </li>
+        <li class="custom-sidebar-item">
+            <a href="<?= $block->getUrl('customer/account') ?>" class="custom-sidebar-link">
+                <?= $escaper->escapeHtml(__('Мои приложения')) ?>
+            </a>
+        </li>
+        <li class="custom-sidebar-item">
+            <a href="<?= $block->getUrl('newsletter/manage') ?>" class="custom-sidebar-link">
+                <?= $escaper->escapeHtml(__('Подписка на новости')) ?>
+            </a>
+        </li>
+        <li class="custom-sidebar-item">
+            <a href="<?= $block->getUrl('wishlist') ?>" class="custom-sidebar-link">
+                <?= $escaper->escapeHtml(__('Мои цифровые товары')) ?>
+            </a>
+        </li>
+        <li class="custom-sidebar-item">
+            <a href="<?= $block->getUrl('customer/account') ?>" class="custom-sidebar-link">
+                <?= $escaper->escapeHtml(__('Мой бонусный счет')) ?>
+            </a>
+        </li>
+    </ul>
+</div>
