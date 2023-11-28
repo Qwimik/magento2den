@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+?>
+
+<div class="custom-store-menu">
+    <div class="custom-store-menu--top">
+        <div class="exchange-container">
+            <p class="exchange-list__text exchange-list__text--opacity"><?= $escaper->escapeHtml(__('Курс')) ?></p>
+            <ul class="custom-store-menu__list custom-store-menu__list--exchange exchange-list">
+                <li class="exchange-list__item">
+                    <p class="exchange-list__text">$ 27.95</p>
+                </li>
+                <li class="exchange-list__item">
+                    <p class="exchange-list__text exchange-list__text--opacity">|</p>
+                </li>
+                <li class="exchange-list__item">
+                    <p class="exchange-list__text">€ 33.50</p>
+                </li>
+            </ul>
+        </div>
+        <ul class="custom-store-menu__list custom-store-menu__list--lang lang-list">
+            <li class="lang-list__item">
+                <p class="lang-list__text lang-list__text--accent">RU</p>
+            </li>
+            <li class="lang-list__item">
+                <p class="lang-list__text">|</p>
+            </li>
+            <li class="lang-list__item">
+                <p class="lang-list__text">UA</p>
+            </li>
+        </ul>
+    </div>
+    <ul class="custom-store-menu__list custom-store-menu__list--action action-list">
+        <li class="action-list__item">
+            <a href="<?= $block->getUrl('') ?>" class="action-list__link">
+                <span class="action-list__icon action-list__icon--menu"></span>
+                <span class="action-list__text"><?= $escaper->escapeHtml(__('Каталог товаров')) ?></span>
+            </a>
+        </li>
+        <li class="action-list__item">
+            <a href="<?= $block->getUrl('wishlist') ?>" class="action-list__link">
+                <span class="action-list__icon action-list__icon--wishlist"></span>
+                <span class="action-list__text"><?= $escaper->escapeHtml(__('Избранное')) ?></span>
+            </a>
+        </li>
+        <li class="action-list__item">
+            <a href="<?= $block->getUrl('') ?>" class="action-list__link">
+                <span class="action-list__icon action-list__icon--singin"></span>
+                <span class="action-list__text"><?= $escaper->escapeHtml(__('Учётная запись')) ?></span>
+            </a>
+        </li>
+        <li class="action-list__item custom-store-menu__line"></li>
+        <li class="action-list__item">
+            <a href="<?= $block->getUrl('') ?>" class="action-list__link">
+                <span class="action-list__icon action-list__icon--cart"></span>
+                <span class="action-list__text"><?= $escaper->escapeHtml(__('Корзина')) ?></span>
+            </a>
+        </li>
+    </ul>
+    <div class="custom-store-menu__phone-block">
+        <span class="custom-store-menu__phone-icon"></span>
+        <ul class="custom-store-menu__list custom-store-menu__list--number number-list">
+            <li class="number-list__item">
+                <a href="tel:0800300144" class="number-list__link">0 800 300 144</a>
+            </li>
+            <li class="number-list__item">
+                <a href="tel:0443949600" class="number-list__link">044 39 49 600</a>
+            </li>
+            <li class="number-list__item">
+                <a href="tel:0683949600" class="number-list__link">068 39 49 600</a>
+            </li>
+            <li class="number-list__item">
+                <a href="tel:0503949700" class="number-list__link">050 39 49 700</a>
+            </li>
+            <li class="number-list__item">
+                <a href="tel:0963949600" class="number-list__link">096 39 49 600</a>
+            </li>
+        </ul>
+    </div>
+    <div class="custom-store-menu__line"></div>
+    <ul class="custom-store-menu__list custom-store-menu__list--nav list-nav">
+        <li class="list-nav__item">
+            <a href="<?= $block->getUrl('') ?>" class="list-nav__link"><?= $escaper->escapeHtml(__('Доставка и оплата')) ?></a>
+        </li>
+        <li class="list-nav__item">
+            <a href="<?= $block->getUrl('') ?>" class="list-nav__link"><?= $escaper->escapeHtml(__('Оптовым клиентам')) ?></a>
+        </li>
+        <li class="list-nav__item">
+            <a href="<?= $block->getUrl('contact') ?>" class="list-nav__link"><?= $escaper->escapeHtml(__('Контакты')) ?></a>
+        </li>
+    </ul>
+</div>

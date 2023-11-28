@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="customer.wishlist" template="Magento_Wishlist::custom-view.phtml"/>
+        <referenceBlock name="page.main.title" template="Magento_Wishlist::custom-title.phtml" />
+
+        <referenceBlock name="sidebar.main.account_nav" remove="true"/>
+        <referenceBlock name="customer.wishlist.item.review" remove="true"/>
+        <referenceBlock name="customer.wishlist.item.comment" remove="true"/>
+        <referenceBlock name="customer.wishlist.item.edit" remove="true"/>
+        <referenceBlock name="customer.wishlist.button.update" remove="true"/>
+        <referenceContainer name="footer-container" remove="true"/>
+        <referenceContainer name="before.body.end" remove="true"/>
+
+        <move element="customer.wishlist.button.share" destination="customer.wishlist.buttons" after="-"/>
+    </body>
+</page>
