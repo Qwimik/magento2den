@@ -1,6 +1,7 @@
 & when (@media-common = true) {
   //
 }
+
 .media-width(@extremum, @break) when (@extremum ='min') and (@break = @screen__m) {
     .custom-sidebar-container {
         background: #EBEBEB;
@@ -42,13 +43,20 @@
                 font-style: normal;
                 font-weight: 400;
                 line-height: normal;
-                transition: background-color .25s ease-out, font-weight .2s ease-out;
+                transition: background-color .25s ease-out;
+                text-decoration: none;
                 &:hover {
                     background-color: #C7C7C7;
-                    font-weight: 700;
-                    text-decoration: none;
                 }
+            }
+            .custom-sidebar-link.active {
+                background-color: #C7C7C7;
+                font-weight: 700;
             }
         }
     }
+}
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break = @screen__l) {
+
 }

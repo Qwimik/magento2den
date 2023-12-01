@@ -3,7 +3,31 @@
 /**
  * @var \Magento\Wishlist\Block\Customer\Wishlist $block
  * @var \Magento\Framework\Escaper $escaper
+ * @var \Magento\Wishlist\Model\WishlistFactory $wishlistFactory
+ * @var \Magento\Wishlist\Helper\Data $wishlistHelper
  */
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('Magento\Customer\Model\Session');
+$wishlistItemsCollection = [];
+if ($customerSession->isLoggedIn()) {
+    $customerId = $customerSession->getCustomer()->getId();
+    $wishlist = $objectManager->create('Magento\Wishlist\Model\Wishlist');
+    $wishlist->loadByCustomerId($customerId, true);
+    $numberOfItems = $wishlist->getItemCollection()->getSize();
+    $wishlistCollection = $wishlist->getItemCollection();
+    foreach ($wishlistCollection as $wishlistItem) {
+        $product = $wishlistItem->getProduct();
+        $wishlistItemsCollection[] = [
+            'id' => $product->getId(),
+            'name' => $product->getName(),
+            'sku' => $product->getSku()
+        ];
+    }
+    $wishlistItemsCollectionJson = json_encode($wishlistItemsCollection);
+    $wishlistItems = $numberOfItems;
+} else {
+    $wishlistItems = "Користувач не увійшов в систему";
+}
 ?>
 
 <?php if ($this->helper(\Magento\Wishlist\Helper\Data::class)->isAllow()) : ?>
@@ -23,6 +47,13 @@
             <div class="message info empty"><span><?= $escaper->escapeHtml(__('You have no items in your wish list.')) ?></span></div>
         <?php endif ?>
         <?= $block->getChildHtml('bottom') ?>
+        <div class="custom-load-more custom-load-more_container">
+            <button type="button" class="custom-load-more_btn load-more-js">
+                <span class="custom-load-more_icon"></span>
+                <span class="custom-load-more_text"><?=$escaper->escapeHtml(sprintf(__('Показать еще %s товаров'), $wishlistItems))?></span>
+            </button>
+        </div>
+        <div class="toolbar wishlist-toolbar custom-wishlist-toolbar"><?= $block->getChildHtml('wishlist_item_pager'); ?></div>
         <div class="actions-toolbar">
             <div class="primary">
                 <?= $block->getChildHtml('control_buttons') ?>
@@ -49,5 +80,14 @@
             <% } %>
         </form>
     </script>
-    <div class="toolbar wishlist-toolbar custom-wishlist-toolbar"><?= $block->getChildHtml('wishlist_item_pager'); ?></div>
 <?php endif ?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Wishlist/js/custom-view": {
+                "wishlistItems": <?= /* @noEscape */ $wishlistItemsCollectionJson ?>
+            }
+        }
+    }
+</script>

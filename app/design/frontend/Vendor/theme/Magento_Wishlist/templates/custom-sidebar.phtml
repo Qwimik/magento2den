@@ -7,13 +7,8 @@
 
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $customer = $objectManager->create('Magento\Customer\Model\Session');
-$urlInterface = \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Framework\UrlInterface::class);
-$currentUrl = $urlInterface->getCurrentUrl();
-$baseurl = $block->getBaseUrl();
 ?>
-<script>
-    console.log('<?= $currentUrl == $baseurl ?>');
-</script>
+
 <div class="custom-sidebar-container">
     <div class="sidebar-user">
         <div class="sidebar-user__photo">
@@ -41,7 +36,7 @@ $baseurl = $block->getBaseUrl();
             </a>
         </li>
         <li class="custom-sidebar-item">
-            <a href="<?= $block->getUrl('customer/account') ?>" class="custom-sidebar-link">
+            <a href="<?= $block->getUrl('404') ?>" class="custom-sidebar-link">
                 <?= $escaper->escapeHtml(__('Периодические услуги')) ?>
             </a>
         </li>
@@ -51,12 +46,12 @@ $baseurl = $block->getBaseUrl();
             </a>
         </li>
         <li class="custom-sidebar-item">
-            <a href="<?= $block->getUrl('wishlist') ?>" class="custom-sidebar-link">
+            <a href="<?= $block->getUrl('wishlist/index/index') ?>" class="custom-sidebar-link">
                 <?= $escaper->escapeHtml(__('Мой лист пожеланий')) ?>
             </a>
         </li>
         <li class="custom-sidebar-item">
-            <a href="<?= $block->getUrl('customer/account') ?>" class="custom-sidebar-link">
+            <a href="<?= $block->getUrl('customer/apps') ?>" class="custom-sidebar-link">
                 <?= $escaper->escapeHtml(__('Мои приложения')) ?>
             </a>
         </li>
@@ -66,14 +61,22 @@ $baseurl = $block->getBaseUrl();
             </a>
         </li>
         <li class="custom-sidebar-item">
-            <a href="<?= $block->getUrl('wishlist') ?>" class="custom-sidebar-link">
+            <a href="<?= $block->getUrl('wish/digital') ?>" class="custom-sidebar-link">
                 <?= $escaper->escapeHtml(__('Мои цифровые товары')) ?>
             </a>
         </li>
         <li class="custom-sidebar-item">
-            <a href="<?= $block->getUrl('customer/account') ?>" class="custom-sidebar-link">
+            <a href="<?= $block->getUrl('customer/bonuses') ?>" class="custom-sidebar-link">
                 <?= $escaper->escapeHtml(__('Мой бонусный счет')) ?>
             </a>
         </li>
     </ul>
 </div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Wishlist/js/custom-sidebar": {}
+        }
+    }
+</script>
